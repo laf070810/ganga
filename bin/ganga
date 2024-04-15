@@ -48,9 +48,9 @@ def standardSetup():
     if exeDir.startswith('/cvmfs/ganga.cern.ch', 0, 20):
         sys.path.insert(0, '/cvmfs/ganga.cern.ch/Ganga/install/micromamba_el9/lib/python3.11/site-packages/')
         if 'glibc2.17' in platform.platform():
-            sys.path.append('/cvmfs/ganga.cern.ch/Ganga/install/8.7.4/condor_install/condor_2_17')
+            sys.path.append('/cvmfs/ganga.cern.ch/Ganga/install/condor_install/condor_2_17')
         else:
-            sys.path.append('/cvmfs/ganga.cern.ch/Ganga/install/8.7.4/condor_install/condor_2_34')
+            sys.path.append('/cvmfs/ganga.cern.ch/Ganga/install/condor_install/condor_2_34')
 
     #This function is needed to add the individual ganga modules to the sys path - awful hack but saved rewriting all the code. This is needed for pip installs
     pathsToAdd = filter(lambda p : 'ganga' in os.listdir(p),
