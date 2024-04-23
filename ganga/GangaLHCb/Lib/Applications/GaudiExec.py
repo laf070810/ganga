@@ -569,7 +569,7 @@ class GaudiExec(IPrepareApp):
             if self.apptainerBuild or 'slc6' in self.platform:
                 try:
                     logger.info('Building inside apptainer: %s' % self.containerLocation)
-                    cmd_to_run = 'apptainer exec --env "PATH=$PATH" --bind $PWD --bind /cvmfs:/cvmfs:ro '\
+                    cmd_to_run = 'source /cvmfs/lhcb.cern.ch/lib/LbEnv && apptainer exec --env "PATH=$PATH" --bind $PWD --bind /cvmfs:/cvmfs:ro '\
                                  + self.containerLocation + ' ' + cmd_file.name
                     rc, stdout, stderr = _exec_cmd(cmd_to_run, self.directory)
                 except:
